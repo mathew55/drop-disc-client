@@ -1,7 +1,7 @@
-from app.user_interactions import initialize_player
-from app.user_interactions import initialize_game
-from app.user_interactions import get_user_move
-from app.request import request_new_game
+from app.utils.user_interactions import initialize_player
+from app.utils.user_interactions import initialize_game
+from app.utils.user_interactions import get_user_move
+from app.utils.request import request_new_game
 
 import time
 
@@ -20,6 +20,7 @@ if __name__ == '__main__':
 
     while game.no_winner_yet():
         if game.current_turn_player == player.player_name:
+            print("Current Status of the board")
             game.display_board()
             next_move = get_user_move(player)
             game.make_next_move(next_move)
@@ -27,6 +28,6 @@ if __name__ == '__main__':
         else:
             game.check_current_player(player)
 
-        time.sleep(3)
+        time.sleep(1)
 
     print(f"GAME OVER, WINNER IS {game.get_winner()}")

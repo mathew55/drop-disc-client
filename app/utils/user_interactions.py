@@ -1,10 +1,10 @@
-from app.player import Player
-from app.game import Game
+from app.model.player import Player
+from app.model.game import Game
 
 
 def initialize_player():
     player_name = input(f"Welcome to the Game, Enter a player name:")
-    token = input(f"Please choose a disc shape for your username (Any character):")
+    token = input(f"Please choose a disc shape for your username (Disc names can be numbers between 1 - 9):")
     player = Player(player_name, token)
     return player
 

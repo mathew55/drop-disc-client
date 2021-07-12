@@ -1,4 +1,4 @@
-from app.request import request_manager
+from app.utils.request import request_manager
 
 import numpy as np
 
