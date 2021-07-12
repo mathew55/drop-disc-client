@@ -4,9 +4,19 @@ from app.services.user_interactions import get_user_move
 from app.services.request_manager import request_new_game
 
 import time
+import logging.handlers
+import os
+
+log = logging.getLogger("drop-disc-client")
+handler = logging.handlers.WatchedFileHandler(
+    os.environ.get("LOGFILE", "drop-disc-client.log"))
+root = logging.getLogger()
+root.setLevel(os.environ.get("LOGLEVEL", "INFO"))
+root.addHandler(handler)
 
 
 if __name__ == '__main__':
+    log.info("Starting the application")
     player = initialize_player()
     game = initialize_game(*(request_new_game(player)))
 
@@ -31,3 +41,4 @@ if __name__ == '__main__':
         time.sleep(1)
 
     print(f"GAME OVER, WINNER IS {game.get_winner()}")
+    log.info("Game finished with a winner")
