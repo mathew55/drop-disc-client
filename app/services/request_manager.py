@@ -1,5 +1,8 @@
+from app.services.conf import Config
 import requests
 import json
+
+config = Config()
 
 def request_manager(request_api_endpoint, request_parameters):
     response = requests.post(url=request_api_endpoint, params=request_parameters)
@@ -9,7 +12,9 @@ def request_manager(request_api_endpoint, request_parameters):
 
 def request_new_game(player):
     print("Starting Game, Requesting server")
-    start_game_url = 'http://localhost:5000/start-game/'
+    serverhttpEndpoint = config.get_config_value("endpoint", "serverhttpEndpoint")
+    baseEndpoint = config.get_config_value("endpoint", "base")
+    start_game_url = f'{serverhttpEndpoint}/{baseEndpoint}/startgame/'
     PARAMS_START_GAME = {'player_name': player.player_name, 'player_token': player.token}
     game_state = request_manager(start_game_url, PARAMS_START_GAME)
     gameId = game_state['GameID']

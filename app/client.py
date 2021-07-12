@@ -1,7 +1,7 @@
-from app.utils.user_interactions import initialize_player
-from app.utils.user_interactions import initialize_game
-from app.utils.user_interactions import get_user_move
-from app.utils.request import request_new_game
+from app.services.user_interactions import initialize_player
+from app.services.user_interactions import initialize_game
+from app.services.user_interactions import get_user_move
+from app.services.request_manager import request_new_game
 
 import time
 
