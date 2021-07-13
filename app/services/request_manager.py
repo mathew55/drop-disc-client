@@ -4,6 +4,7 @@ import json
 
 config = Config()
 
+"""Helper functions to make requests to server easier"""
 def request_manager(request_api_endpoint, request_parameters):
     response = requests.post(url=request_api_endpoint, params=request_parameters)
     response_json = json.loads(response.content.decode('utf-8'))

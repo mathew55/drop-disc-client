@@ -5,7 +5,12 @@ import numpy as np
 config = Config()
 
 class Game:
-
+    """
+        The GAME class is responsible for tracking the state of the game at
+        server side, The game class contains operations which determines
+        the current players and winner based on the state of the game received from
+        the server
+    """
     turn = 0
     winner = ''
     game_over = False

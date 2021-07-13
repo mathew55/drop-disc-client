@@ -1,6 +1,8 @@
 from app.model.player import Player
 from app.model.game import Game
 
+"""Helper functions for taking user inputs and validating them"""
+
 
 def initialize_player():
     player_name = input(f"Welcome to the Game, Enter a player name:")

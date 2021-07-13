@@ -7,6 +7,15 @@ import time
 import logging.handlers
 import os
 
+"""
+    The main class which is responsible for instantiating the players and
+    starting the game.
+    
+    Once the game started loops between players based on their turn
+"""
+
+
+
 log = logging.getLogger("drop-disc-client")
 handler = logging.handlers.WatchedFileHandler(
     os.environ.get("LOGFILE", "drop-disc-client.log"))
